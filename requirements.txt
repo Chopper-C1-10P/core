@@ -1,6 +1,6 @@
 requests==2.25.1
-ipinfo==4.1.0
 praw==7.1.0
-giphy_client==1.0.0
 discord.py==1.6.0
+ipinfo==4.1.0
+giphy_client==1.0.0
 discord==1.0.1
