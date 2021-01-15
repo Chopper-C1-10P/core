@@ -26,7 +26,7 @@ class Owner(Cog):
     async def rules(self, ctx):
         embed = discord.Embed(
             title="Rules",
-            description=":one: Use the channels for what their name suggests\n
+            description=":one: Use the channels for what their name suggests\n"
             ":two: Be nice if you are talking to other people and use common sense",
             color=self.bot.color
         )
