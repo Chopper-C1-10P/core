@@ -7,6 +7,6 @@ class K2SO(Bot):
         super().__init__(
             command_prefix=prefix,
             intents=Intents.all()
-            )
+        )
         self.remove_command("help")
         self.color = 0x11101e
