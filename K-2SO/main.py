@@ -12,7 +12,6 @@ from cogs.utility import Utility
 from cogs.wikipedia import Wikipedia
 
 cogs = [
-    Admin,
     Events,
     Fun,
     Help,
