@@ -69,7 +69,7 @@ class Utility(Cog):
                 member = ctx.message.author
 
             embed = discord.Embed(
-                color=member.color,
+                color=self.bot.color,
                 timestamp=ctx.message.created_at,
             )
             embed.set_image(url=member.avatar_url)

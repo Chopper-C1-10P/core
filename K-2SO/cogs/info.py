@@ -26,7 +26,7 @@ class Info(Cog):
             roles = [role for role in member.roles[1:]]
 
             embed = discord.Embed(
-                color=member.color,
+                color=self.bot.color,
                 timestamp=ctx.message.created_at,
             )
             embed.set_thumbnail(url=member.avatar_url)

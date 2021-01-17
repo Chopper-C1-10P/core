@@ -25,11 +25,11 @@ class Fun(Cog):
                     url=response["data"][0]["images"]["original"]["url"])
                 await ctx.send(embed=embed)
             except Exception:
-                ctx.send("Something went wrong!")
+                await ctx.send("Something went wrong!")
 
     @command(description="Sends a random subreddit picture.",
              usage="<subreddit>")
-    async def rreddit(self, ctx, subreddit):
+    async def reddit(self, ctx, subreddit):
         async with ctx.typing():
             index = 0
             while True:
@@ -58,21 +58,6 @@ class Fun(Cog):
         async with ctx.typing():
             while True:
                 post = reddit.subreddit("memes").random()
-                if "i.redd.it" in post.url:
-                    embed = discord.Embed(description=post.title,
-                                          color=self.bot.color,
-                                          timestamp=ctx.message.created_at)
-                    embed.set_image(url=post.url)
-                    requested_by(self.bot, ctx, embed)
-                    await ctx.send(embed=embed)
-
-                    break
-
-    @command(aliases=["starwarsmeme"], description="Sends a random meme.")
-    async def swmeme(self, ctx):
-        async with ctx.typing():
-            while True:
-                post = reddit.subreddit("prequelmemes").random()
                 if "i.redd.it" in post.url:
                     embed = discord.Embed(description=post.title,
                                           color=self.bot.color,

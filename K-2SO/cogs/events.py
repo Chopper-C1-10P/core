@@ -19,7 +19,7 @@ class Events(Cog):
         activity = discord.Activity(
             type=discord.ActivityType.streaming,
             url="https://www.twitch.tv/K-2SO",
-            name=f"{self.bot.command_prefix}help"
+            name=f"@{self.bot.user.name}"
         )
         await self.bot.change_presence(activity=activity)
 
