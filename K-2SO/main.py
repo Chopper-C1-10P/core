@@ -2,7 +2,6 @@ import discord
 
 from bots.K2SO import K2SO
 from helpers.config import config
-from cogs.admin import Admin
 from cogs.events import Events
 from cogs.fun import Fun
 from cogs.help import Help
