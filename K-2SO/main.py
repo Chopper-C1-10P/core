@@ -45,7 +45,7 @@ class K2SO(Bot):
                 self.add_cog(cog(self))
             except Exception as e:
                 print(e)
-        print(f"Loaded cogs")
+        print(f"Loaded cogs...")
 
         activity = discord.Activity(
             type=discord.ActivityType.streaming,
@@ -53,5 +53,7 @@ class K2SO(Bot):
             name=f"@{self.user.name}"
         )
         await self.change_presence(activity=activity)
+        print("Set activity...\n"
+              "Bot succesfully logged in!")
 
 K2SO().run(token)
