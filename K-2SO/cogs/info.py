@@ -26,12 +26,20 @@ class Info(Cog):
             color=self.bot.color
             )
         embed.set_thumbnail(url=self.bot.user.avatar_url)
-        embed.add_field(name="Name", value=platform.node()[:-6])
-        embed.add_field(name="System", value=platform.system())
-        embed.add_field(name="Version", value=platform.release())
-        embed.add_field(name="Processor", value=platform.processor())
-        embed.add_field(name="Python", value=platform.python_version())
-        embed.add_field(name="Compiler", value=platform.python_compiler())
+
+        if platform.node():
+            embed.add_field(name="Name", value=platform.node()[:-6])
+        if platform.system():
+            embed.add_field(name="System", value=platform.system())
+        if platform.release():
+            embed.add_field(name="Version", value=platform.release())
+        if platform.processor():
+            embed.add_field(name="Processor", value=platform.processor())
+        if platform.python_version():
+            embed.add_field(name="Python", value=platform.python_version())
+        if platform.python_compiler():
+            embed.add_field(name="Compiler", value=platform.python_compiler())
+            
         await ctx.send(embed=embed)
     @command(
         description="Get info about a user",
