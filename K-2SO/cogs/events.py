@@ -11,25 +11,6 @@ class Events(Cog):
         self.bot = bot
 
     @Cog.listener()
-    async def on_connect(self):
-        print("Logging in...")
-
-    @Cog.listener()
-    async def on_ready(self):
-        activity = discord.Activity(
-            type=discord.ActivityType.streaming,
-            url="https://www.twitch.tv/K-2SO",
-            name=f"@{self.bot.user.name}"
-        )
-        await self.bot.change_presence(activity=activity)
-
-        me = self.bot.get_user(514403029898887201)
-        dm = await me.create_dm()
-        await dm.send("I just logged in!")
-
-        print(f"Logged in as: {self.bot.user}!")
-
-    @Cog.listener()
     async def on_message(self, message):
         if self.bot.user.mentioned_in(message):
             embed = discord.Embed(
