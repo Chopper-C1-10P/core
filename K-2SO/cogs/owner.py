@@ -19,7 +19,7 @@ class Owner(Cog):
     @is_owner()
     async def restart(self, ctx):
         await self.bot.close()
-        os.system("bash AUTO/start.sh")
+        os.system("bash K-2SO/start.sh")
 
     @command(description="Rules in the support server", hidden=True)
     @is_owner()
