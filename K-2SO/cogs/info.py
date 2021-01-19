@@ -14,33 +14,6 @@ class Info(Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @command(description="Some info about the bot.")
-    async def info(self, ctx):
-        embed = discord.Embed(
-            title=self.bot.user.name,
-            description="A discord bot inspired by K-2SO from Star Wars. The droid is seen in "
-                        "Rogue One: A Star Wars Story (2018) and is a reprogrammed imperial enforcer droid. "
-                        "K-2 was reporgrammed by Captain Cassian Andor of the Rebel Alliance. "
-                        "The droid is known for it's sarcasm and personality.\n\n"
-                        "Here is some information on the device that runs the bot:",
-            color=self.bot.color
-            )
-        embed.set_thumbnail(url=self.bot.user.avatar_url)
-        print(platform.node())
-        if platform.node():
-            embed.add_field(name="Name", value=platform.node()[:-6])
-        if platform.system():
-            embed.add_field(name="System", value=platform.system())
-        if platform.release():
-            embed.add_field(name="Version", value=platform.release())
-        if platform.processor():
-            embed.add_field(name="Processor", value=platform.processor())
-        if platform.python_version():
-            embed.add_field(name="Python", value=platform.python_version())
-        if platform.python_compiler():
-            embed.add_field(name="Compiler", value=platform.python_compiler())
-
-        await ctx.send(embed=embed)
     @command(
         description="Get info about a user",
         usage="<member>"
