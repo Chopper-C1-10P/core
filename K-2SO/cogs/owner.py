@@ -20,14 +20,3 @@ class Owner(Cog):
     async def restart(self, ctx):
         await self.bot.close()
         os.system("bash K-2SO/start.sh")
-
-    @command(description="Rules in the support server", hidden=True)
-    @is_owner()
-    async def rules(self, ctx):
-        embed = discord.Embed(
-            title="Rules",
-            description=":one: Use the channels for what their name suggests\n"
-            ":two: Be nice if you are talking to other people and use common sense",
-            color=self.bot.color
-        )
-        await ctx.send(embed=embed)
