@@ -33,7 +33,7 @@ class K2SO(Bot):
                          intents=intents)
 
         self.remove_command("help")
-        self.color = 0x11101e
+        self.color = 0x2F3136
 
         self.loop.create_task(self.when_ready())
 
