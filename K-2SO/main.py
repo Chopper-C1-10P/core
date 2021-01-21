@@ -32,9 +32,9 @@ class K2SO(Bot):
         super().__init__(command_prefix=prefix,
                          intents=intents)
 
-        self.remove_command("help")
         self.color = 0x2F3136
 
+        self.remove_command("help")
         self.loop.create_task(self.when_ready())
 
     async def when_ready(self):
@@ -48,12 +48,10 @@ class K2SO(Bot):
         print(f"Loaded cogs...")
 
         activity = discord.Activity(
-            type=discord.ActivityType.streaming,
-            url="https://www.twitch.tv/K-2SO",
-            name=f"@{self.user.name}"
+            type=discord.ActivityType.watching,
+            name=f"{self.command_prefix}help"
         )
         await self.change_presence(activity=activity)
-        print("Set activity...\n"
-              "Bot succesfully logged in!")
+        print("Bot succesfully logged in!")
 
 K2SO().run(token)
