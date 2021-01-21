@@ -17,5 +17,6 @@ class Moderation(Cog):
             embed = discord.Embed(description=f"Deleted {amount} messages!",
                                   color=self.bot.color,
                                   hidden=True)
-            await ctx.send(embed=embed)
-            await ctx.channel.purge(limit=amount + 2)
+            await ctx.channel.purge(limit=amount + 1)
+            await ctx.send(embed=embed, delete_after=3)
+
