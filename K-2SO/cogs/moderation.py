@@ -19,4 +19,3 @@ class Moderation(Cog):
                                   hidden=True)
             await ctx.channel.purge(limit=amount + 1)
             await ctx.send(embed=embed, delete_after=3)
-
