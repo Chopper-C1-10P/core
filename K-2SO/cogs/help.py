@@ -1,7 +1,10 @@
+import asyncio
+
 import discord
 from discord.ext.commands import Cog, command
 
-from helpers.embeds import contact_owner
+from helpers.embeds import contact_owner, requested_by
+from helpers.emojis import hemojis
 
 
 class Help(Cog):
@@ -10,23 +13,19 @@ class Help(Cog):
 
     @command(aliases=["commands"], hidden=True)
     async def help(self, ctx):
-        embed = discord.Embed(
-            title=f"{self.bot.user.name}'s commands",
-            color=self.bot.color,
-            timestamp=ctx.message.created_at
-        )
+        embed = discord.Embed(title="Commands", color=self.bot.color)
         for command in self.bot.commands:
-            if command.hidden is False:
-                if command.usage is None:
+            if not command.hidden:
+                if not command.usage:
                     embed.add_field(
-                        name=f"`{self.bot.command_prefix}{command}`",
-                        value=command.description
+                        name=f"`{self.bot.command_prefix}{command}`", 
+                        value=command.description,
+                        inline=False
                     )
                 else:
                     embed.add_field(
-                        name=f"`{self.bot.command_prefix}{command} {command.usage}`",
-                        value=command.description
+                        name=f"`{self.bot.command_prefix}{command} {command.usage}`", 
+                        value=command.description,
+                        inline=False
                     )
-        owner = self.bot.get_user(514403029898887201)
-        contact_owner(self.bot, embed)
         await ctx.send(embed=embed)
