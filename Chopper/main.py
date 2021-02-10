@@ -13,8 +13,8 @@ from cogs.wikipedia import Wikipedia
 
 intents = discord.Intents.all()
 
-prefix = config("config.json", "k2so_prefix")
-token = config("config.json", "k2so_token")
+prefix = config("config.json", "chopper_prefix")
+token = config("config.json", "chopper_token")
 
 cogs = [
     Events,
@@ -27,7 +27,7 @@ cogs = [
     Wikipedia
 ]
 
-class K2SO(Bot):
+class Chopper(Bot):
     def __init__(self):
         super().__init__(command_prefix=prefix,
                          intents=intents)
@@ -52,6 +52,6 @@ class K2SO(Bot):
             name=f"{self.command_prefix}help"
         )
         await self.change_presence(activity=activity)
-        print("Bot succesfully logged in!")
+        print(f"Logged in as {self.user}")
 
-K2SO().run(token)
+Chopper().run(token)

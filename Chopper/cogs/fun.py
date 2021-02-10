@@ -1,5 +1,4 @@
 import discord
-import giphy_client
 import requests
 from bots.reddit import reddit
 from discord.ext.commands import Cog, command
@@ -10,22 +9,6 @@ from helpers.embeds import requested_by
 class Fun(Cog):
     def __init__(self, bot):
         self.bot = bot
-
-    @command(description="Sends a gif from the given query.", usage="<query>")
-    async def gif(self, ctx, *, query):
-        async with ctx.typing():
-            api_key = config("config.json", "giphy_api_key")
-            response = requests.get(
-                f"https://api.giphy.com/v1/gifs/search?q={query}&api_key={api_key}&limit=1"
-            )
-            response = response.json()
-            try:
-                embed = discord.Embed(description=query, color=self.bot.color)
-                embed.set_image(
-                    url=response["data"][0]["images"]["original"]["url"])
-                await ctx.send(embed=embed)
-            except Exception:
-                await ctx.send("Something went wrong!")
 
     @command(description="Sends a random subreddit picture.",
              usage="<subreddit>")
